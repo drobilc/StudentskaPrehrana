@@ -87,6 +87,35 @@ class StudentskaPrehrana(object):
 			all_data.append(transaction_data)
 		return all_data
 
+	def getMostVisited(self, date_from, date_to):
+		transactions_url = "https://www.studentska-prehrana.si/sl/transactions/ListForPeriod"
+		transactions_data = {
+			"from": date_from.strftime("%Y-%m-%d"),
+			"to": date_to.strftime("%Y-%m-%d")
+		}
+		transactions_response = self.session.post(transactions_url, data=transactions_data)
+		transactions_json = transactions_response.json()
+		most_visited_data = {
+			"restaurant": transactions_json['MostVisited'],
+			"count": transactions_json['MostVisitedCount']
+		}
+		return most_visited_data
+
+	def getSums(self, date_from, date_to):
+		transactions_url = "https://www.studentska-prehrana.si/sl/transactions/ListForPeriod"
+		transactions_data = {
+			"from": date_from.strftime("%Y-%m-%d"),
+			"to": date_to.strftime("%Y-%m-%d")
+		}
+		transactions_response = self.session.post(transactions_url, data=transactions_data)
+		transactions_json = transactions_response.json()
+		sums = {
+			"full": transactions_json['SumFull'],
+			"subsidy": transactions_json['SumSubsidy'],
+			"surcharge": transactions_json['SumSurcharge']
+		}
+		return sums
+
 	def getTransactions(self, date_from, date_to):
 		transactions_url = "https://www.studentska-prehrana.si/sl/transactions/ListForPeriod"
 		transactions_data = {
