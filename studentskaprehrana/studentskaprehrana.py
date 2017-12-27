@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import datetime
 import re
 import locale
-import csv
 
 locale.setlocale(locale.LC_NUMERIC, "sl")
 price_regex = re.compile(r"(\d+(,\d+)?)")
