@@ -9,6 +9,11 @@ cd studentskaprehrana
 python setup.py install
 ```
 
+You can also install it using `pip`.
+```
+pip install studentskaprehrana
+```
+
 ## Usage
 To use this package you first have to install it and then import it into your python script. This is usually done using `import studentskaprehrana`.
 
