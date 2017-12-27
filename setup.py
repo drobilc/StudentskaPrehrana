@@ -12,8 +12,5 @@ setup(name = 'studentskaprehrana',
 	download_url = 'https://github.com/drobilc/studentskaprehrana/archive/0.1.tar.gz',
 	install_requires = [
 		"requests",
-		"BeautifulSoup",
-		"datetime",
-		"re",
-		"locale"
+		"beautifulsoup4"
 	])
